@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using JuliePro.Models;
+using JuliePro.Models.Data;
 namespace JuliePro
 {
     public class Program
@@ -5,9 +8,10 @@ namespace JuliePro
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("JulieProContext")));
 
             var app = builder.Build();
 
