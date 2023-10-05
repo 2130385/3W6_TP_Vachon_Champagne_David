@@ -11,6 +11,7 @@
             border: 1px solid rgba(0,0,0,.125)
         }
     </style>
+    <script src="https://kit.fontawesome.com/a2a64007d1.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -35,7 +36,7 @@
                                 Admin
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Privacy">Trainers</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Trainer" asp-action="Index">Trainers</a></li>
                                 <li><a class="dropdown-item" asp-area="" asp-controller="Speciality" asp-action="Index">Specialities</a></li>
                             </ul>
                         </li>
@@ -47,6 +48,10 @@
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
+            <div class="form-group btn btn-primary">
+                <a asp-action="Index">Back to List</a>
+                <i class="fa-solid fa-circle-arrow-left"></i>
+            </div>
         </main>
     </div>
 
@@ -60,4 +65,5 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>

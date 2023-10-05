@@ -1,0 +1,80 @@
+﻿@model TrainerVM
+@{
+    ViewData["Title"] = "Create";
+}
+<h1>Create</h1>
+<h4>Trainer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div class="row p-3 ">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group row m-1">
+                    <div class="col-4">
+                        <label asp-for="@Model.Trainer.FirstName" class="control-label"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="@Model.Trainer.FirstName" class="form-control" />
+                        <span asp-validation-for="@Model.Trainer.FirstName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row m-1">
+                    <div class="col-4">
+                        <label asp-for="@Model.Trainer.LastName" class="control-label"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="@Model.Trainer.LastName" class="form-control" />
+                        <span asp-validation-for="@Model.Trainer.LastName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row m-1">
+                    <div class="col-4">
+                        <label asp-for="@Model.Trainer.Id" class="control-label"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="@Model.Trainer.Id" class="form-control" />
+                        <span asp-validation-for="@Model.Trainer.Id" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row m-1">
+                    <div class="col-4">
+                        <label asp-for="@Model.Trainer.Speciality.Name" class="control-label"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="@Model.Trainer.Speciality.Name" class="form-control" />
+                        <span asp-validation-for="@Model.Trainer.Speciality.Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row m-1">
+                    <div class="col-4">
+                        <label asp-for="@Model.Trainer.Email" class="control-label"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="@Model.Trainer.Email" class="form-control" />
+                        <span asp-validation-for="@Model.Trainer.Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group row m-1">
+                    <div class="col-4">
+                        <label asp-for="@Model.Trainer.Photo" class="control-label"></label>
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="@Model.Trainer.Photo" class="form-control" />
+                        <span asp-validation-for="@Model.Trainer.Photo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group btn btn-primary m-1">
+                    <input type="submit" value="Create" class=" " />
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -91,7 +91,7 @@ namespace JuliePro.Controllers
 
         public IActionResult Delete(int id)
         {
-            Speciality? speciality = _baseDonnees.Specialities.Include(z => z.Specialities).FirstOrDefault(z => z.Id == id);
+            Speciality? speciality = _baseDonnees.Specialities.FirstOrDefault(z => z.Id == id);
             if (speciality == null)
             {
                 return NotFound();

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using JuliePro.Models.Data;
-using ZombieParty.Data;
+using JuliePro.Data;
 
 namespace JuliePro.Models.Data
 {
@@ -16,5 +16,6 @@ namespace JuliePro.Models.Data
         }
 
         public DbSet<Speciality> Specialities { get; set; }
+        public DbSet<Trainer> Trainers { get; set; }
     }
 }

@@ -1,9 +1,9 @@
-﻿@model JuliePro.Models.Speciality
+﻿@model JuliePro.Models.Trainer
 @{
     ViewData["Title"] = "Delete";
 }
 <h1>Delete</h1>
-<h4>Speciality</h4>
+<h4>Trainer</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -12,10 +12,16 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group row">
                     <div class="col-4">
-                        <label asp-for="@Model.Name" class="control-label"></label>
+                        Name
                     </div>
                     <div class="form-control">
-                        @Model.Name
+                        @Model.FirstName @Model.LastName
+                    </div>
+                    <div class="col-4">
+                        Speciality
+                    </div>
+                    <div class="form-control">
+                        @Model.Speciality.Name
                     </div>
                 </div>
                 <div class="form-group btn btn-primary m-1">

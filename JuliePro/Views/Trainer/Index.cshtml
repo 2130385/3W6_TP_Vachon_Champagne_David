@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Trainer>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-10">
+            <h2 class="text-primary">Trainers</h2>
+        </div>
+        <div class="col-2 text-right">
+            <a asp-action="Create" class="btn btn-success">
+                Create New Trainer
+            </a>
+        </div>
+    </div>
+    <div class="table">
+        @foreach (var item in Model)
+        {
+            <div class="row border border-white">
+                <img class="img mx-" src="/images/Trainers/@item.Photo" style="max-width: 200px">
+                <h3 class="col-sm card-title"> @item.FirstName @item.LastName</h3>
+                <h5 class="col-sm text-success"> Speciality: @item.Speciality.Name </h5>
+                <a asp-action="Edit" asp-route-Id="@item.Id" class="col-sm btn btn-info m-4">
+                    Edit
+                </a>
+                <a asp-action="Details" asp-route-Id="@item.Id" class="col-sm btn btn-info m-4">
+                    Details
+                </a>
+                <a asp-action="Delete" asp-route-Id="@item.Id" class="col-sm btn btn-info m-4">
+                    Delete
+                </a>
+            </div>
+        }
+    </div>
+</div>
