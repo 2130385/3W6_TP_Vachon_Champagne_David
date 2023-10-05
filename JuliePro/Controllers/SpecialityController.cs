@@ -91,8 +91,9 @@ namespace JuliePro.Controllers
 
         public IActionResult Delete(int id)
         {
-            Speciality? speciality = _baseDonnees.Specialities.FirstOrDefault(z => z.Id == id);
-            if (speciality == null)
+            var specialities = _baseDonnees.Specialities;
+            var speciality = specialities.Where(i => i.Id == id).FirstOrDefault();
+            if (specialities == null)
             {
                 return NotFound();
             }
@@ -104,16 +105,26 @@ namespace JuliePro.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeletePost(int id)
         {
-            Speciality? speciality = _baseDonnees.Specialities.Find(id);
+            var numberOfTrainers = _baseDonnees.Trainers.Count(t => t.SpecialityId == id);
+            var speciality = _baseDonnees.Specialities.FirstOrDefault(s => s.Id == id);
             if (speciality == null)
             {
                 return NotFound();
             }
-
-            _baseDonnees.Specialities.Remove(speciality);
-            _baseDonnees.SaveChanges();
-            TempData["Success"] = $"Speciality {speciality.Name} terminated";
-            return RedirectToAction("Index");
+            
+            if (numberOfTrainers == 0)
+            {
+                _baseDonnees.Specialities.Remove(speciality);
+                _baseDonnees.SaveChanges();
+                TempData["Success"] = $"Speciality {speciality.Name} terminated";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.ErrorMessage = "There is at least one Trainer with that speciality.";
+                return View("Delete",speciality);
+            }
         }
     }
-}
+    }
+

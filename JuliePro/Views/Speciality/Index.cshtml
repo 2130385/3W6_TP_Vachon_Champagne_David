@@ -5,23 +5,24 @@
         <div class="col-10">
             <h2 class="text-primary">Specialities</h2>
         </div>
-        <div class="col-2 text-right">
-            <a asp-action="Create" class="btn btn-success">
-                Create New Speciality
-            </a>
-        </div>
+        <a asp-action="Create" class="btn btn-success col-sm m-1">
+            Create New Speciality
+            <i class="fa-solid fa-plus"></i>
+        </a>
     </div>
     <div class="table">
         @foreach (var item in Model)
         {
             <div class="row border border-white">
                 <h3 class="col-sm card-title"> @item.Name </h3>
-                <h5 class="col-sm text-success"> @item.Id </h5>
-                <a asp-action="Edit" asp-route-Id="@item.Id" class="col-sm btn btn-info">
+                <h5 class="col-sm text-success"> Id: @item.Id </h5>
+                <a asp-action="Edit" asp-route-Id="@item.Id" class="col-sm btn btn-info m-1">
                     Edit
+                    <i class="fa-solid fa-floppy-disk"></i>
                 </a>
-                <a asp-action="Delete" asp-route-Id="@item.Id" class="col-sm btn btn-info">
+                <a asp-action="Delete" asp-route-Id="@item.Id" class="col-sm btn btn-info m-1">
                     Delete
+                    <i class="fa-solid fa-trash"></i>
                 </a>
             </div>
         }

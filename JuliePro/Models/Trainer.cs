@@ -25,6 +25,7 @@ namespace JuliePro.Models
         public string Email { get; set; }
 
         [MaxLength(40)]
+        [ValidateNever]
         public string Photo { get; set; }
 
         [ForeignKey("Speciality")]

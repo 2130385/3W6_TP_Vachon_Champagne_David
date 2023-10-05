@@ -7,6 +7,7 @@ namespace JuliePro.ViewModels
     {
         public Speciality Speciality { get; set; }
         public List<Trainer> TrainersList { get; set; } = new List<Trainer>();
+        public int TrainerCount { get; set; }
         public IEnumerable<SelectListItem>? SpecialityTypeSelectList { get; set; }
     }
 }

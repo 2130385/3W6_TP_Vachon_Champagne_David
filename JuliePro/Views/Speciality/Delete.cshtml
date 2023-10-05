@@ -18,6 +18,10 @@
                         @Model.Name
                     </div>
                 </div>
+                @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+                {
+                    @ViewBag.ErrorMessage
+                }
                 <div class="form-group btn btn-primary m-1">
                     <input type="submit" value="Delete" />
                     <i class="fa-solid fa-trash"></i>
@@ -26,6 +30,7 @@
         </div>
     </div>
 </div>
+
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
