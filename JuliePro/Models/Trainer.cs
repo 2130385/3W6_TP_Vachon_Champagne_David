@@ -24,8 +24,8 @@ namespace JuliePro.Models
         [EmailAddress]
         public string Email { get; set; }
 
-        [MaxLength(40)]
         [ValidateNever]
+        [StringLength(25, ErrorMessage = "{0} must contains maximum {1} characters.")]
         public string Photo { get; set; }
 
         [ForeignKey("Speciality")]
