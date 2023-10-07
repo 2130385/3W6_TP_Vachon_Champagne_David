@@ -18,7 +18,7 @@ namespace JuliePro.Controllers
 
         public IActionResult Index()
         {
-            var trainersList = _baseDonnees.Trainers.Include(u => u.Speciality);
+            var trainersList = _baseDonnees.Trainers.Include(u => u.Speciality).OrderBy(n => n.FirstName).ThenBy(l => l.LastName);
             return View(trainersList);
         }
 

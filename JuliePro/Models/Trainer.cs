@@ -21,7 +21,7 @@ namespace JuliePro.Models
         [StringLength(25, MinimumLength = 4, ErrorMessage = "{0} must contains {2} to {1} characters.")]
         public string LastName { get; set; }
 
-        [EmailAddress]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         [ValidateNever]
@@ -32,6 +32,8 @@ namespace JuliePro.Models
         public int SpecialityId { get; set; }
         [ValidateNever]
         public Speciality Speciality { get; set; }
+
+        public List<Customer> Customers { get; set; }
 
     }
 }

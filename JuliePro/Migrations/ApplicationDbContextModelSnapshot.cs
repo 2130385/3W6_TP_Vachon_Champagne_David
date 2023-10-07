@@ -55,7 +55,7 @@ namespace JuliePro.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Customer");
+                    b.ToTable("Customers");
 
                     b.HasData(
                         new
@@ -119,7 +119,7 @@ namespace JuliePro.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("Objective");
+                    b.ToTable("Objectives");
 
                     b.HasData(
                         new

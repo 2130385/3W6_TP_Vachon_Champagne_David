@@ -12,7 +12,7 @@ namespace JuliePro.Models
         public string FirstName { get; set; }
         [StringLength(25, MinimumLength = 4, ErrorMessage = "{0} must contains {2} to {1} characters.")]
         public string LastName { get; set; }
-        [EmailAddress]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         public DateTime BirthDate { get; set; }
         private double startWeight;

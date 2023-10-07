@@ -5,12 +5,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace JuliePro.Migrations
 {
-    public partial class juliepro : Migration
+    public partial class julie : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Customer",
+                name: "Customers",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -24,7 +24,7 @@ namespace JuliePro.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Customer", x => x.Id);
+                    table.PrimaryKey("PK_Customers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -41,7 +41,7 @@ namespace JuliePro.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Objective",
+                name: "Objectives",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -54,11 +54,11 @@ namespace JuliePro.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Objective", x => x.Id);
+                    table.PrimaryKey("PK_Objectives", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Objective_Customer_CustomerId",
+                        name: "FK_Objectives_Customers_CustomerId",
                         column: x => x.CustomerId,
-                        principalTable: "Customer",
+                        principalTable: "Customers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -87,7 +87,7 @@ namespace JuliePro.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Customer",
+                table: "Customers",
                 columns: new[] { "Id", "BirthDate", "Email", "FirstName", "LastName", "StartWeight", "TrainerId" },
                 values: new object[,]
                 {
@@ -108,7 +108,7 @@ namespace JuliePro.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Objective",
+                table: "Objectives",
                 columns: new[] { "Id", "AchievedDate", "CustomerId", "DistanceKm", "LostWeightKg", "Name" },
                 values: new object[,]
                 {
@@ -135,8 +135,8 @@ namespace JuliePro.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Objective_CustomerId",
-                table: "Objective",
+                name: "IX_Objectives_CustomerId",
+                table: "Objectives",
                 column: "CustomerId");
 
             migrationBuilder.CreateIndex(
@@ -148,13 +148,13 @@ namespace JuliePro.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Objective");
+                name: "Objectives");
 
             migrationBuilder.DropTable(
                 name: "Trainers");
 
             migrationBuilder.DropTable(
-                name: "Customer");
+                name: "Customers");
 
             migrationBuilder.DropTable(
                 name: "Specialities");

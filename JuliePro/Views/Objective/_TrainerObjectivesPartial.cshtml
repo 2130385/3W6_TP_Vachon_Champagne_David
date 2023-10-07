@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Trainer>
+<div class="accordion" id="accordionExample">
+    @foreach (var item in Model)
+    {
+        <div class="accordion-item">
+            <div class="accordion-header" data-parent="#accordionExample">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" aria-expanded="true">
+                    @item.FirstName @item.LastName - @item.Speciality.Name
+                </button>
+            </div>
+        </div>
+        if(item.Customers.Count > 0)
+        {
+            <div class="accordion-body">
+                <table class="table table-bordered border-white">
+                    <tr class="row">
+                        <th class="col">
+                            Customer's Name
+                        </th>
+                        <th class="col">
+                            Number Completed Objectives
+                        </th>
+                        <th class="col">
+                            Number Incompleted Objectives
+                        </th>
+                        <th class="col">
+                            Status
+                        </th>
+                    </tr>
+                    @foreach (var customer in item.Customers)
+                    {
+                        <tr class="row">
+                            @Html.Partial("_CustomerObjectivesPartial", customer)
+                        </tr>
+                    }
+                </table>
+            </div>
+        }
+
+    }
+</div>

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JuliePro.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231006005642_juliepro")]
-    partial class juliepro
+    [Migration("20231006012938_julie")]
+    partial class julie
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -57,7 +57,7 @@ namespace JuliePro.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Customer");
+                    b.ToTable("Customers");
 
                     b.HasData(
                         new
@@ -121,7 +121,7 @@ namespace JuliePro.Migrations
 
                     b.HasIndex("CustomerId");
 
-                    b.ToTable("Objective");
+                    b.ToTable("Objectives");
 
                     b.HasData(
                         new
