@@ -1,0 +1,59 @@
+﻿@model object
+@if (Model is Speciality speciality)
+{
+    <h1>Delete</h1>
+    <h4>Speciality</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row p-3 ">
+                <form asp-action="DeletePost" asp-route-Id="@speciality.Id">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="@speciality.Name" class="control-label"></label>
+                        </div>
+                        <div class="form-control">
+                            @speciality.Name
+                        </div>
+                    </div>
+                    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+                    {
+                        @ViewBag.ErrorMessage
+                    }
+                    @Html.Partial("_ButtonsPartial", "Delete")
+                </form>
+            </div>
+        </div>
+    </div>
+}
+@if (Model is Trainer trainer)
+{
+    <h1>Delete</h1>
+    <h4>Trainer</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row p-3 ">
+                <form asp-action="DeletePost" asp-route-Id="@trainer.Id">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            Name
+                        </div>
+                        <div class="form-control">
+                            @trainer.FirstName @trainer.LastName
+                        </div>
+                        <div class="col-4">
+                            Speciality
+                        </div>
+                        <div class="form-control">
+                            @trainer.Speciality.Name
+                        </div>
+                    </div>
+                    @Html.Partial("_ButtonsPartial", "Delete")
+                </form>
+            </div>
+        </div>
+    </div>
+}

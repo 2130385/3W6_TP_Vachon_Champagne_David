@@ -1,0 +1,28 @@
+﻿@model Customer
+
+
+    <td class="col">
+    @Model.FirstName @Model.LastName
+    </td>
+    <td class="col">
+    @Model.Objectives.Where(d =>d.AchievedDate != null).Count()
+    </td>
+    <td class="col">
+    @Model.Objectives.Where(d =>d.AchievedDate == null).Count()
+    </td>
+    <td class="col">
+    @if (Model.Objectives.Where(d => d.AchievedDate != null).Count() == 1)
+        {
+            <p class="text-success">Keep focusing on that objective!</p>
+        }
+    @if (Model.Objectives.Where(d => d.AchievedDate == null).Count() == 0)
+        {
+            <p class="text-warning">It's time to set a new objective!</p>
+        }
+    @if (Model.Objectives.Where(d => d.AchievedDate == null).Count() > 1)
+        {
+            <p class="text-danger">Shouldn't have more than 1 current objective!</p>
+        }
+    </td>
+
+

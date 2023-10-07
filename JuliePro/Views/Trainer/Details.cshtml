@@ -1,0 +1,25 @@
+﻿@model JuliePro.Models.Trainer
+@{
+    ViewData["Title"] = "Details";
+}
+<h1>Details</h1>
+<h4>@Model.FirstName @Model.LastName</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+                <img class="img mx-" src="/images/Trainers/@Model.Photo">
+                <h5 class="col-sm"> First name: @Model.FirstName </h5>
+                <h5 class="col-sm"> Last name: @Model.LastName </h5>
+                <h5 class="col-sm"> Speciality: @Model.Speciality.Name </h5>
+                <h5 class="col-sm"> Email: @Model.Email </h5>
+    </div>
+</div>
+@Html.Partial("_ButtonsPartial","")
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

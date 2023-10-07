@@ -1,0 +1,10 @@
+﻿@model JuliePro.Models.Speciality
+@{
+    ViewData["Title"] = "Delete";
+}
+@Html.Partial("_DeletePartial", Model)
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

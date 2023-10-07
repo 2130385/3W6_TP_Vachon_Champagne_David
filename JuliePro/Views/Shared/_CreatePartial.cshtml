@@ -1,0 +1,87 @@
+﻿@model object
+@if (Model is SpecialityVM specialityVM)
+{
+    <h1>Create</h1>
+    <h4>Speciality</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div class="row p-3 ">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group row m-1">
+                        <div class="col-4">
+                            <label asp-for="@specialityVM.Speciality.Name" class="control-label"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="@specialityVM.Speciality.Name" class="form-control" />
+                            <span asp-validation-for="@specialityVM.Speciality.Name" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                @Html.Partial("_ButtonsPartial", "Create")
+            </form>
+        </div>
+    </div>
+}
+@if (Model is TrainerVM trainerVM)
+{
+    <h1>Create</h1>
+    <h4>Trainer</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row p-3 ">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group row m-1">
+                        <div class="col-4">
+                            <label asp-for="@trainerVM.Trainer.FirstName" class="control-label"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="@trainerVM.Trainer.FirstName" class="form-control" />
+                            <span asp-validation-for="@trainerVM.Trainer.FirstName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row m-1">
+                        <div class="col-4">
+                            <label asp-for="@trainerVM.Trainer.LastName" class="control-label"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="@trainerVM.Trainer.LastName" class="form-control" />
+                            <span asp-validation-for="@trainerVM.Trainer.LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row m-1">
+                        <div class="col-4">
+                            <label asp-for="@trainerVM.Trainer.Speciality.Name" class="control-label"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="@trainerVM.Trainer.Speciality.Name" class="form-control" />
+                            <span asp-validation-for="@trainerVM.Trainer.Speciality.Name" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row m-1">
+                        <div class="col-4">
+                            <label asp-for="@trainerVM.Trainer.Email" class="control-label"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="@trainerVM.Trainer.Email" class="form-control" />
+                            <span asp-validation-for="@trainerVM.Trainer.Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group row m-1">
+                        <div class="col-4">
+                            <label asp-for="@trainerVM.Trainer.Photo" class="control-label"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="@trainerVM.Trainer.Photo" class="form-control" />
+                            <span asp-validation-for="@trainerVM.Trainer.Photo" class="text-danger"></span>
+                        </div>
+                    </div>
+                    @Html.Partial("_ButtonsPartial", "Create")
+                </form>
+            </div>
+        </div>
+    </div>
+}

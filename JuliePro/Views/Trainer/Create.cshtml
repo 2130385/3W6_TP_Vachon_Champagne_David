@@ -1,0 +1,10 @@
+﻿@model TrainerVM
+@{
+    ViewData["Title"] = "Create";
+}
+@Html.Partial("_CreatePartial", Model)
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
